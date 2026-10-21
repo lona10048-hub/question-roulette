@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>질문 룰렛 놀이</title>
+  <meta name="description" content="질문 틀 룰렛과 제시어 룰렛을 돌려 질문을 만들고, 한 마디만 바꿔 새 질문을 만드는 2차시 놀이">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/dunggeunmiso-b.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div id="brand"></div>
+      <div class="spacer"></div>
+    </header>
+
+    <section class="card pad-lg" aria-labelledby="hero-title">
+      <span class="deco green" style="width:280px;height:280px;right:-90px;top:-110px"></span>
+      <span class="deco cream" style="width:220px;height:220px;left:-80px;bottom:-110px"></span>
+      <div class="hero">
+        <div>
+          <div class="eyebrow">질문하는 힘 기르기 · 2차시 · 모둠 태블릿 돌려쓰기</div>
+          <h1 class="display" id="hero-title">룰렛을 돌려<br>질문을 만들어요!</h1>
+          <p class="lead">질문 틀 룰렛과 제시어 룰렛이 함께 돌아요.<br>나온 것으로 질문을 만들고, 한 마디만 바꿔 새 질문도 만들어 볼까요?</p>
+          <div class="row">
+            <span class="chip apricot">질문 틀 룰렛</span>
+            <span class="chip">제시어 룰렛</span>
+            <span class="chip butter">한 마디 바꾸기</span>
+            <span class="chip cream">차례대로 태블릿 넘기기</span>
+          </div>
+        </div>
+        <div class="hero-art" id="hero-art"></div>
+      </div>
+    </section>
+
+    <section class="choices" aria-label="사용자 고르기">
+      <a class="choice teacher" href="teacher.html">
+        <span class="art" id="art-teacher"></span>
+        <span>
+          <span class="t">선생님용</span>
+          <span class="d" style="display:block">대주제와 제시어, 활동 시간을 정하고 게임 코드를 만들어요</span>
+        </span>
+        <span class="go" id="go-1"></span>
+      </a>
+      <a class="choice student" href="student.html">
+        <span class="art" id="art-student"></span>
+        <span>
+          <span class="t">학생용 (모둠 태블릿)</span>
+          <span class="d" style="display:block">게임 코드를 입력하고 모둠 친구 이름을 차례대로 써요</span>
+        </span>
+        <span class="go" id="go-2"></span>
+      </a>
+    </section>
+
+    <section class="steps" aria-label="놀이 방법">
+      <div class="card step">
+        <div class="num">1</div>
+        <div class="t">룰렛 돌리기</div>
+        <div class="d">내 차례가 되면 "룰렛 돌리기"를 눌러요. 질문 틀과 제시어가 함께 뽑혀요.</div>
+      </div>
+      <div class="card step">
+        <div class="num">2</div>
+        <div class="t">질문 만들고 넘기기</div>
+        <div class="d">뽑힌 질문 틀과 제시어로 질문을 만들어 저장하고, 태블릿을 다음 친구에게 넘겨요.</div>
+      </div>
+      <div class="card step">
+        <div class="num">3</div>
+        <div class="t">한 마디 바꾸기</div>
+        <div class="d">우리 모둠 질문을 하나 골라 딱 한 마디만 바꿔요. 바꾸는 방법은 TIP 카드에 있어요.</div>
+      </div>
+    </section>
+
+    <p class="foot">따로 준비할 것 없이 바로 쓸 수 있어요. 학생 질문은 게임을 만든 뒤 24시간이 지나면 저절로 지워지니, 끝나면 선생님 화면에서 CSV로 내려받아 두세요.</p>
+  </main>
+
+  <script type="module">
+    import { brandHtml, heroRouletteArt, teacherArt, studentArt, ICON } from './js/ui.js';
+    document.getElementById('brand').innerHTML = brandHtml();
+    document.getElementById('hero-art').innerHTML = '<div class="art-frame">' + heroRouletteArt() + '</div>';
+    document.getElementById('art-teacher').innerHTML = teacherArt();
+    document.getElementById('art-student').innerHTML = studentArt();
+    document.getElementById('go-1').innerHTML = ICON.arrow;
+    document.getElementById('go-2').innerHTML = ICON.arrow;
+  </script>
+</body>
+</html>
